@@ -3,6 +3,11 @@ import sys
 import cv2
 import numpy as np
 
+# Template Image = the template you are searching for
+template_image = r''
+# Screenshot Image = the image you are searching
+screenshot_image = r''
+
 class ImageSolution:
 
 	def __init__(self, template_image, screenshot_image):
@@ -60,16 +65,17 @@ class ImageSolution:
 
 
 if __name__ == '__main__':
-	#template_image = x + 'DestinationsPage\\denver_carousel.jpg'
-	#screenshot_image = x + 'screenshot.jpg'
-	template_image = sys.argv[1]
-	screenshot_image = sys.argv[2]
-	f = sys.argv[3]
+	# Uncomment if running from the command line
+	#template_image = sys.argv[1]
+	#screenshot_image = sys.argv[2]
+	#reult_path = sys.argv[3]
+
 	sol = ImageSolution(template_image, screenshot_image)
 	sol.calculate_template_match_coordinates()
-	sol.write_results_to_file(f)
-	#sol.display_results()
-	#print('COMPLETED... image_solution.py :)')
+	#sol.write_results_to_file(result_path)
+	sol.display_results()
+
+	print('COMPLETED... image_solution.py :)')
 	#w, h = template.shape[::-1]
 	#print(str(w))
 	#print(str(h))
