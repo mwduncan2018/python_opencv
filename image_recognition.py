@@ -1,16 +1,15 @@
-# install OpenCV like this --> pip install opencv-python
 import os
 import sys
 import cv2
 import numpy as np
 
-# Template Image = this is the template you are searching for
+# This is the template you are searching for
 template_image = r'C:\dev\Python\python_opencv\images\template_ocean_city.jpg'
 
-# Screenshot Image = this is the image you are searching
+# This is the image you are searching
 screenshot_image = r'C:\dev\Python\python_opencv\images\screenshot_maryland_map.jpg'
 
-# Threshold for template matching
+# Giving OpenCV a threshold around 97% works best
 threshold = 0.97
 
 class ImageSolution:
@@ -65,12 +64,7 @@ class ImageSolution:
 
 
 if __name__ == '__main__':
-	# Uncomment if running from the command line
-	#template_image = sys.argv[1]
-	#screenshot_image = sys.argv[2]
-
 	solution = ImageSolution(template_image, screenshot_image, threshold)
 	solution.calculate_template_match_coordinates()
 	solution.display_results()
-
 	print('\n\nCOMPLETED... image_recognition.py :)\n')
